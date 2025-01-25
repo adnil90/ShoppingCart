@@ -27,4 +27,12 @@ class ShoppingCartTest {
         assertEquals(25, cart.getTotalPrice(),
                 "Total price should equal the price of the added item");
     }
+
+    @Test
+    void addingMultipleItemsSum() {
+        cart.addItem("Milk", 25);
+        cart.addItem("Bread", 20);
+        assertEquals(45, cart.getTotalPrice());
+        assertEquals(2, cart.getItemCount());
+    }
 }
