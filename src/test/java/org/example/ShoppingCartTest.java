@@ -35,4 +35,13 @@ class ShoppingCartTest {
         assertEquals(45, cart.getTotalPrice());
         assertEquals(2, cart.getItemCount());
     }
+
+    @Test
+    void removingItemAdjustsTotalPrice() {
+        cart.addItem("Milk", 25);
+        cart.addItem("Bread", 20);
+        cart.removeItem("Bread");
+        assertEquals(25, cart.getTotalPrice(),
+                "Removing the item worth 20 should drop total from 45 to 25");
+    }
 }
