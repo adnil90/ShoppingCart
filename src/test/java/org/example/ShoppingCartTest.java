@@ -20,4 +20,11 @@ class ShoppingCartTest {
         assertEquals(1, cart.getItemCount(),
                 "Item count should be 1 after adding one item");
     }
+
+    @Test
+    void addingNewItemUpdatesTotalPrice() {
+        cart.addItem("Milk", 25);
+        assertEquals(25, cart.getTotalPrice(),
+                "Total price should equal the price of the added item");
+    }
 }
