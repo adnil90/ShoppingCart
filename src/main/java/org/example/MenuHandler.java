@@ -79,4 +79,8 @@ public class MenuHandler {
             System.out.println(" - " + name);
         }
     }
+
+    private void showTotalPrice() {
+        System.out.println("Total price of shopping cart: " + cart.getTotalPrice() + " SEK");
+    }
 }
