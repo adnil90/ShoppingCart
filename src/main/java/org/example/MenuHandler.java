@@ -50,4 +50,18 @@ public class MenuHandler {
         cart.addItem(itemName, price);
         System.out.println(itemName + " added to shopping cart.");
     }
+
+
+    private void removeItem() {
+        int itemCount = cart.getItemCount();
+        if (itemCount == 0) {
+            System.out.println("The shopping cart is empty. There is nothing to remove.");
+            return;
+        }
+
+        System.out.print("Which item would you like to remove: ");
+        String removeName = scanner.nextLine();
+        cart.removeItem(removeName);
+        System.out.println(removeName + " was removed from shopping cart.");
+    }
 }
