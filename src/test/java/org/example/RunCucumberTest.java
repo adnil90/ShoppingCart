@@ -8,7 +8,7 @@ import static io.cucumber.junit.platform.engine.Constants.*;
 
 @Suite
 @SelectClasspathResource("features")
-@ConfigurationParameter(key = GLUE_PROPERTY_NAME, value = "com.example.stepdefinitions")
+@ConfigurationParameter(key = GLUE_PROPERTY_NAME, value = "org.example.stepdefinitions")
 @ConfigurationParameter(key = PLUGIN_PROPERTY_NAME, value = "pretty")
 public class RunCucumberTest {
 }
