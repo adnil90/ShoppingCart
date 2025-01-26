@@ -35,6 +35,10 @@ public class ShoppingCart {
         return names;
     }
 
+    public void removeItem(String name) {
+        items.removeIf(item -> item.getName().equalsIgnoreCase(name));
+    }
+
     private static class Item {
         private final String name;
         private final int price;
