@@ -41,4 +41,13 @@ public class MenuHandler {
             }
         }
     }
+
+    private void addItem() {
+        System.out.print("Item name: ");
+        String itemName = scanner.nextLine();
+        System.out.print("Price: ");
+        int price = Integer.parseInt(scanner.nextLine());
+        cart.addItem(itemName, price);
+        System.out.println(itemName + " added to shopping cart.");
+    }
 }
