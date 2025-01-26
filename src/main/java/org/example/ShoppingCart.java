@@ -15,6 +15,10 @@ public class ShoppingCart {
         items.add(new Item(name, price));
     }
 
+    public int getItemCount() {
+        return items.size();
+    }
+
     private static class Item {
         private final String name;
         private final int price;
