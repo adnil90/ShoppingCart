@@ -51,7 +51,6 @@ public class MenuHandler {
         System.out.println(itemName + " added to shopping cart.");
     }
 
-
     private void removeItem() {
         int itemCount = cart.getItemCount();
         if (itemCount == 0) {
@@ -63,5 +62,21 @@ public class MenuHandler {
         String removeName = scanner.nextLine();
         cart.removeItem(removeName);
         System.out.println(removeName + " was removed from shopping cart.");
+    }
+
+    private void showItemCountAndNames() {
+        int itemCount = cart.getItemCount();
+        System.out.println("Number of items in the shopping cart: " + itemCount);
+
+        if (itemCount == 0) {
+            System.out.println("The shopping cart is empty.");
+            return;
+        }
+
+        List<String> itemNames = cart.getItemNames();
+        System.out.println("Items in the shopping cart:");
+        for (String name : itemNames) {
+            System.out.println(" - " + name);
+        }
     }
 }
