@@ -11,6 +11,10 @@ public class ShoppingCart {
         items = new ArrayList<>();
     }
 
+    public void addItem(String name, int price) {
+        items.add(new Item(name, price));
+    }
+
     private static class Item {
         private final String name;
         private final int price;
