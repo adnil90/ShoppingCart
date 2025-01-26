@@ -19,6 +19,14 @@ public class ShoppingCart {
         return items.size();
     }
 
+    public int getTotalPrice() {
+        int sum = 0;
+        for (Item item : items) {
+            sum += item.getPrice();
+        }
+        return sum;
+    }
+
     private static class Item {
         private final String name;
         private final int price;
