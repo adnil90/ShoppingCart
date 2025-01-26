@@ -27,6 +27,14 @@ public class ShoppingCart {
         return sum;
     }
 
+    public List<String> getItemNames() {
+        List<String> names = new ArrayList<>();
+        for (Item item : items) {
+            names.add(item.getName());
+        }
+        return names;
+    }
+
     private static class Item {
         private final String name;
         private final int price;
