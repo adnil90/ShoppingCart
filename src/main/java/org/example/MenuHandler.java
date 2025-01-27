@@ -63,16 +63,15 @@ public class MenuHandler {
     }
 
     private void removeItem() {
-        int itemCount = cart.getItemCount();
-        if (itemCount == 0) {
-            System.out.println("The shopping cart is empty. There is nothing to remove.");
-            return;
-        }
-
         System.out.print("Which item would you like to remove: ");
         String removeName = scanner.nextLine();
-        cart.removeItem(removeName);
-        System.out.println(removeName + " was removed from shopping cart.");
+        boolean removed = cart.removeItem(removeName);
+
+        if (removed) {
+            System.out.println(removeName + " was removed from the shopping cart.");
+        } else {
+            System.out.println(removeName + " can not be found in the shopping cart.");
+        }
     }
 
     private void showItemCountAndNames() {
