@@ -12,6 +12,9 @@ public class ShoppingCart {
     }
 
     public void addItem(String name, int price) {
+        if (price < 0) {
+            throw new IllegalArgumentException("Price can't be negative.");
+        }
         items.add(new Item(name, price));
     }
 
