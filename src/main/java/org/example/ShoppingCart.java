@@ -38,8 +38,14 @@ public class ShoppingCart {
         return names;
     }
 
-    public void removeItem(String name) {
-        items.removeIf(item -> item.getName().equalsIgnoreCase(name));
+    public boolean removeItem(String name) {
+        for (int i = 0; i < items.size(); i++) {
+            if (items.get(i).getName().equalsIgnoreCase(name)) {
+                items.remove(i);
+                return true;
+            }
+        }
+        return false;
     }
 
     private static class Item {
