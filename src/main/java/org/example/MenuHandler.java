@@ -46,22 +46,32 @@ public class MenuHandler {
         System.out.print("Item name: ");
         String itemName = scanner.nextLine();
         System.out.print("Price: ");
-        int price = Integer.parseInt(scanner.nextLine());
-        cart.addItem(itemName, price);
-        System.out.println(itemName + " added to shopping cart.");
-    }
-
-    private void removeItem() {
-        int itemCount = cart.getItemCount();
-        if (itemCount == 0) {
-            System.out.println("The shopping cart is empty. There is nothing to remove.");
+        int price;
+        try {
+            price = Integer.parseInt(scanner.nextLine());
+        } catch (NumberFormatException e) {
+            System.out.println("Error: Price must be an integer. Item could not be added.");
             return;
         }
 
+        try {
+            cart.addItem(itemName, price);
+            System.out.println(itemName + " added to shopping cart.");
+        } catch (IllegalArgumentException e) {
+            System.out.println("Error: " + e.getMessage());
+        }
+    }
+
+    private void removeItem() {
         System.out.print("Which item would you like to remove: ");
         String removeName = scanner.nextLine();
-        cart.removeItem(removeName);
-        System.out.println(removeName + " was removed from shopping cart.");
+        boolean removed = cart.removeItem(removeName);
+
+        if (removed) {
+            System.out.println(removeName + " was removed from the shopping cart.");
+        } else {
+            System.out.println(removeName + " can not be found in the shopping cart.");
+        }
     }
 
     private void showItemCountAndNames() {
