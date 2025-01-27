@@ -46,9 +46,20 @@ public class MenuHandler {
         System.out.print("Item name: ");
         String itemName = scanner.nextLine();
         System.out.print("Price: ");
-        int price = Integer.parseInt(scanner.nextLine());
-        cart.addItem(itemName, price);
-        System.out.println(itemName + " added to shopping cart.");
+        int price;
+        try {
+            price = Integer.parseInt(scanner.nextLine());
+        } catch (NumberFormatException e) {
+            System.out.println("Error: Price must be an integer. Item could not be added.");
+            return;
+        }
+
+        try {
+            cart.addItem(itemName, price);
+            System.out.println(itemName + " added to shopping cart.");
+        } catch (IllegalArgumentException e) {
+            System.out.println("Error: " + e.getMessage());
+        }
     }
 
     private void removeItem() {
